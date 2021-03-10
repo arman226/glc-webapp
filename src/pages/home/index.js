@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as Actions from "../../modules/testApi/actionCreators";
 
-const Home = () => {
+const Home = ({ navigation, resultList, fetchTestApiStart }) => {
+  const classes = useStyles();
+  useEffect(() => {
+    fetchTestApiStart();
+  }, []);
+
   return (
-    <>
-      <div>{process.env.REACT_APP_BASE_URL} he</div>
-    </>
+    <div className={classes.content}>
+      <ol>
+        {resultList &&
+          resultList.map(({ id, title }) => <li key={id}>{title}</li>)}
+      </ol>
+    </div>
   );
 };
 const useStyles = makeStyles((theme) => ({
-  toolbar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
 }));
+const select = ({ testApi }) => {
+  const resultList = testApi.data;
+  const { isLoading } = testApi;
+  return { resultList, isLoading };
+};
 
-export default Home;
+const actions = (dispatch) => {
+  return bindActionCreators(Actions, dispatch);
+};
+
+export default connect(select, actions)(Home);

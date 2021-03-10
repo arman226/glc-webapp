@@ -13,8 +13,8 @@ const RootRoute = () => {
         <NavMenu />
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          {Routes.map(({ path, component }) => (
-            <Route exact path={path} component={component} />
+          {Routes.map(({ path, component, key }) => (
+            <Route key={key} exact path={path} component={component} />
           ))}
         </main>
       </div>
