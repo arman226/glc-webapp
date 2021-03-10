@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core";
 const Home = () => {
   return (
     <>
-      <div>home</div>
+      <div>{process.env.REACT_APP_BASE_URL} he</div>
     </>
   );
 };
