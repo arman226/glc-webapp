@@ -1,8 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 
-const Test = () => {
-  return <div>test</div>;
+const Home = () => {
+  return (
+    <>
+      <div>home</div>
+    </>
+  );
 };
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -19,4 +23,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default Test;
+export default Home;
