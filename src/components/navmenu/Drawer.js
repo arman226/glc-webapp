@@ -75,7 +75,7 @@ const MyDrawer = ({ handleDrawerClose, open }) => {
             <ListItemIcon>
               <Icon />
             </ListItemIcon>
-            <ListItemText primary={name} onClick={goToPath(path)} />
+            <ListItemText primary={name} />
           </ListItem>
         ))}
       </List>
