@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as Actions from "../../modules/testApi/actionCreators";
+import React, { useEffect } from 'react';
+import { makeStyles } from '@material-ui/core';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import ListItem from '../../components/listitem/ListItem';
+import * as Actions from '../../modules/testApi/actionCreators';
 
 const Home = ({ navigation, resultList, fetchTestApiStart }) => {
   const classes = useStyles();
@@ -14,7 +15,9 @@ const Home = ({ navigation, resultList, fetchTestApiStart }) => {
     <div className={classes.content}>
       <ol>
         {resultList &&
-          resultList.map(({ id, title }) => <li key={id}>{title}</li>)}
+          resultList.map(({ id, title }) => (
+            <ListItem key={id} title={title} />
+          ))}
       </ol>
     </div>
   );

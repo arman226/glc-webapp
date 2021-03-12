@@ -1,39 +1,39 @@
-import React from "react";
-import clsx from "clsx";
+import React from 'react';
+import clsx from 'clsx';
 import {
   Typography,
   IconButton,
   makeStyles,
   AppBar,
   Toolbar,
-} from "@material-ui/core";
-import { Menu as MenuIcon } from "@material-ui/icons";
-import { APP_NAME } from "../../constants/strings.constants";
-import { PRIMARY_COLOR } from "../../styles/colors.styles";
-import { DRAWER_WIDTH } from "../../styles/dimens.styles";
+} from '@material-ui/core';
+import { Menu as MenuIcon } from '@material-ui/icons';
+import { APP_NAME } from '../../constants/strings.constants';
+import { PRIMARY_COLOR } from '../../styles/colors.styles';
+import { DRAWER_WIDTH } from '../../styles/dimens.styles';
 
 const MyAppBar = ({ handleDrawerOpen, open }) => {
   const classes = useStyles();
   return (
     <AppBar
-      position="fixed"
+      position='fixed'
       className={clsx(classes.appBar, {
         [classes.appBarShift]: open,
       })}
     >
       <Toolbar>
         <IconButton
-          color="inherit"
-          aria-label="open drawer"
+          color='inherit'
+          aria-label='open drawer'
           onClick={handleDrawerOpen}
-          edge="start"
+          edge='start'
           className={clsx(classes.menuButton, {
             [classes.hide]: open,
           })}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap>
+        <Typography variant='h6' noWrap>
           {APP_NAME}
         </Typography>
       </Toolbar>
@@ -44,7 +44,7 @@ const MyAppBar = ({ handleDrawerOpen, open }) => {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     marginLeft: DRAWER_WIDTH,
     width: `calc(100% - ${DRAWER_WIDTH}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 36,
   },
   hide: {
-    display: "none",
+    display: 'none',
   },
 }));
 

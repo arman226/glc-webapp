@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 
 const Test = () => {
+  const classes = useStyles();
   return <div>test</div>;
 };
 const useStyles = makeStyles((theme) => ({
