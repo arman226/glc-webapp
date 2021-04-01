@@ -15,10 +15,18 @@ import { useHistory } from "react-router-dom";
 import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
-  Mail as MailIcon,
+  Grade as GradeIcon,
   Home as HomeIcon,
+  School as SchoolIcon,
+  Person as PersonIcon,
+  LibraryBooks as LibraryBooksIcon,
+  Assignment as AssignmentIcon,
+  DateRange as DateRangeIcon,
+  Ballot as BallotIcon,
+  AccountCircle as AccountCircleIcon,
 } from "@material-ui/icons";
 import { DRAWER_WIDTH } from "../../styles/dimens.styles";
+import { BLACK } from "../../styles/colors.styles";
 
 const menu = [
   {
@@ -29,9 +37,51 @@ const menu = [
   },
   {
     key: 2,
-    name: "Test",
-    Icon: MailIcon,
-    path: "/test",
+    name: "Students",
+    Icon: SchoolIcon,
+    path: "/student",
+  },
+  {
+    key: 3,
+    name: "Grades",
+    Icon: GradeIcon,
+    path: "/grades",
+  },
+  {
+    key: 4,
+    name: "Instructors",
+    Icon: PersonIcon,
+    path: "/instructors",
+  },
+  {
+    key: 5,
+    name: "Subjects",
+    Icon: LibraryBooksIcon,
+    path: "/subjects",
+  },
+  {
+    key: 6,
+    name: "Sections",
+    Icon: AssignmentIcon,
+    path: "/sections",
+  },
+  {
+    key: 7,
+    name: "Schedules",
+    Icon: DateRangeIcon,
+    path: "/schedules",
+  },
+  {
+    key: 8,
+    name: "Accounts",
+    Icon: BallotIcon,
+    path: "/accounts",
+  },
+  {
+    key: 9,
+    name: "Users",
+    Icon: AccountCircleIcon,
+    path: "/users",
   },
 ];
 
@@ -59,7 +109,8 @@ const MyDrawer = ({ handleDrawerClose, open }) => {
       }}
     >
       <div className={classes.toolbar}>
-        <IconButton onClick={handleDrawerClose}>
+        <IconButton 
+        onClick={handleDrawerClose}>
           {theme.direction === "rtl" ? (
             <ChevronRightIcon />
           ) : (
@@ -69,11 +120,11 @@ const MyDrawer = ({ handleDrawerClose, open }) => {
       </div>
       <Divider />
       <hr />
-      <List>
+      <List style={{ color: 'black' }}>
         {menu.map(({ Icon, name, path }) => (
           <ListItem button key={name} onClick={goToPath(path)}>
             <ListItemIcon>
-              <Icon />
+              <Icon style={{ color: 'black' }}/>
             </ListItemIcon>
             <ListItemText primary={name} />
           </ListItem>
@@ -90,6 +141,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
   },
   drawerOpen: {
+    backgroundColor: BLACK,
     width: DRAWER_WIDTH,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -97,6 +149,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   drawerClose: {
+    backgroundColor: BLACK,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -104,8 +157,21 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9) + 1,
+      width: theme.spacing(8) + 1,
     },
+  },
+  toolbar: {
+    backgroundColor: "#ebfaeb",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: theme.spacing(0, 0),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
   },
 }));
 

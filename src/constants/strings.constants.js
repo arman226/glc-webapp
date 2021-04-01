@@ -1,1 +1,1 @@
-export const APP_NAME = "Groeien Learning Center";
+export const APP_NAME = "GROEIEN Learning Center, Inc.";

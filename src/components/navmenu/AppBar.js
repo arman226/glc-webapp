@@ -23,7 +23,7 @@ const MyAppBar = ({ handleDrawerOpen, open }) => {
     >
       <Toolbar>
         <IconButton
-          color="inherit"
+          color="black"
           aria-label="open drawer"
           onClick={handleDrawerOpen}
           edge="start"
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
-    marginRight: 36,
+    marginRight: 20,
   },
   hide: {
     display: "none",
