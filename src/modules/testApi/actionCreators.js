@@ -11,5 +11,5 @@ export const fetchTestApiDone = (data) => ({
 
 export const fetchTestApiError = (data) => ({
   type: types.FETCH_TEST_API_ERROR,
-  payload: data,
+  payload: { data },
 });

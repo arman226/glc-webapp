@@ -13,12 +13,8 @@ function* processFetchItem(action) {
     // const {employeeUserId} = yield select(getState);
 
     const { data } = yield call(getSample);
-
-    yield console.table("working", data);
-
     yield put(fetchTestApiDone(data));
   } catch (error) {
-    // yield put(sendCrashReport(error));
     yield put(fetchTestApiError(error.message));
   }
 }
