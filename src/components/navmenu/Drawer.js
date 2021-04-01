@@ -26,6 +26,7 @@ import {
   AccountCircle as AccountCircleIcon,
 } from "@material-ui/icons";
 import { DRAWER_WIDTH } from "../../styles/dimens.styles";
+import { BLACK } from "../../styles/colors.styles";
 
 const menu = [
   {
@@ -140,7 +141,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
   },
   drawerOpen: {
-    backgroundColor: "#ebfaeb",
+    backgroundColor: BLACK,
     width: DRAWER_WIDTH,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -148,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   drawerClose: {
-    backgroundColor: "#ebfaeb",
+    backgroundColor: BLACK,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
