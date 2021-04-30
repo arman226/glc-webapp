@@ -26,7 +26,7 @@ import {
   AccountCircle as AccountCircleIcon,
 } from "@material-ui/icons";
 import { DRAWER_WIDTH } from "../../styles/dimens.styles";
-import { BLACK } from "../../styles/colors.styles";
+import { LIGHT_GREEN, BLACK } from "../../styles/colors.styles";
 
 const menu = [
   {
@@ -120,11 +120,11 @@ const MyDrawer = ({ handleDrawerClose, open }) => {
       </div>
       <Divider />
       <hr />
-      <List style={{ color: 'black' }}>
+      <List style={{ color: BLACK }}>
         {menu.map(({ Icon, name, path }) => (
           <ListItem button key={name} onClick={goToPath(path)}>
             <ListItemIcon>
-              <Icon style={{ color: 'black' }}/>
+              <Icon style={{ color: BLACK }}/>
             </ListItemIcon>
             <ListItemText primary={name} />
           </ListItem>
@@ -141,7 +141,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
   },
   drawerOpen: {
-    backgroundColor: BLACK,
+    backgroundColor: LIGHT_GREEN,
     width: DRAWER_WIDTH,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -149,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   drawerClose: {
-    backgroundColor: BLACK,
+    backgroundColor: LIGHT_GREEN,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

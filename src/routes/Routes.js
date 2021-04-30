@@ -1,5 +1,6 @@
 import Home from "../pages/home";
 import Students from "../pages/student";
+import NewStudent from "../pages/student/addNewStudent";
 import Grades from "../pages/grades";
 import Instructors from "../pages/instructors";
 import Subjects from "../pages/subjects";
@@ -21,36 +22,41 @@ export default [
   },
   {
     key: 3,
+    path: "/student/addNewStudent",
+    component: NewStudent,
+  },
+  {
+    key: 4,
     path: "/grades",
     component: Grades,
   },
   {
-    key: 4,
+    key: 5,
     path: "/instructors",
     component: Instructors,
   },
   {
-    key: 5,
+    key: 6,
     path: "/subjects",
     component: Subjects,
   },
   {
-    key: 6,
+    key: 7,
     path: "/sections",
     component: Sections,
   },
   {
-    key: 7,
+    key: 8,
     path: "/schedules",
     component: Schedules,
   },
   {
-    key: 8,
+    key: 9,
     path: "/accounts",
     component: Accounts,
   },
   {
-    key: 9,
+    key: 10,
     path: "/users",
     component: Users,
   },

@@ -30,13 +30,7 @@ const Home = ({ resultList, fetchTestApiStart, isLoading, error }) => {
   }
 
   return (
-
-    
-
     <div className={classes.content}>
-
-
-
       <ol>
         {resultList &&
           resultList.map(({ id, title }) => <li key={id}>{title}</li>)}

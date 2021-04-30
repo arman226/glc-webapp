@@ -7,4 +7,9 @@ export const LIGHT_GRAY = "#F3F3F3";
 export const INFO = "#F6F7F9";
 export const SUCCESS = "#22bb33";
 
-export const BLACK = "#ebfaeb";
+export const LIGHT_GREEN = "#ebfaeb";
+export const BLACK = 'black';
+
+//lime green #32cd32
+//orange #ffa500
+//yellow #ffff00

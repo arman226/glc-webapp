@@ -1,13 +1,14 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
+import React, { useEffect }  from "react";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, makeStyles } from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { useHistory } from "react-router-dom";
+// import Controls from "../../components/controls/Controls";
+import * as Actions from "../../modules/testApi/actionCreators";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import ProgressIndicator from "../../components/progressIndicator";
+import ErrorHandler from "../../components/errorHandler";
+
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -50,14 +51,44 @@ const rows = [
 // });
 
 
-
-const Students = () => {
+const Students = ({ fetchTestApiStart, isLoading, error }) => {
   const classes = useStyles();
+  useEffect(() => {
+    fetchTestApiStart();
+  }, []);
+  const history = useHistory();
+    const redirectToTarget = () => {
+       history.push("/student/addNewStudent");
+      };
+
+        /**
+   * show a loading indicator while fetching isn't done yet
+   * see @reducer
+   */
+         if (isLoading) {
+          return <ProgressIndicator />;
+        }
+      
+        /**
+         * every time an error occured,
+         * always inform the users and give them the chance to
+         * @reload
+         */
+        if (error) {
+          return <ErrorHandler message={error} onRetry={fetchTestApiStart} />;
+        }
+
+  
+
   return (
     
-    <div className='test'>test users
-    <div className={classes.content}>
     
+    <div className={classes.content}>
+    <h2>Student Management</h2>
+    <Button className={classes.add} type='submit' variant="contained" onClick={redirectToTarget}>Add New</Button>
+    <Button className={classes.archive} type='submit' variant="contained">Archives</Button>
+    <Paper className={classes.paper}></Paper>
+    <Paper className={classes.paper}>
     <TableContainer component={Paper}>
       <Table className={classes.table} >
         <TableHead>
@@ -106,9 +137,9 @@ const Students = () => {
         </TableBody>
       </Table>
     </TableContainer>
-
+    </Paper>
     </div>
-    </div>
+    
   );
 };
 const useStyles = makeStyles((theme) => ({
@@ -123,11 +154,41 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    marginTop:-10,
   },
   table: {
     minWidth: 700,
     
   },
+  add: {
+    margin:'10px 0', 
+    color: 'white',
+    backgroundColor: '#32cd32', 
+    width:120,
+  },
+  archive: {
+    margin:'10px 0', 
+    marginLeft: 30,
+    color: 'white',
+    backgroundColor: '#32cd32', 
+    width:120,
+  },
+   paper: {
+      padding :30,
+      margin:"50px auto", 
+      borderRadius: 6, 
+      borderTop: `5px solid #54c8e8`,
+    },
 }));
 
-export default Students;
+const select = ({ testApi }) => {
+  const resultList = testApi.data;
+  const { isLoading, error } = testApi;
+  return { resultList, isLoading, error };
+};
+
+const actions = (dispatch) => {
+  return bindActionCreators(Actions, dispatch);
+};
+
+export default connect(select, actions)(Students);
