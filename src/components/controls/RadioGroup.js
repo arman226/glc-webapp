@@ -1,12 +1,10 @@
 import React from 'react'
-import { FormControl, FormLabel, RadioGroup as MuiRadioGroup, FormControlLabel, Radio, makeStyles } from '@material-ui/core';
+import { FormControl, FormLabel, RadioGroup as MuiRadioGroup, FormControlLabel, Radio, makeStyles, RadioGroup } from '@material-ui/core';
 import { PRIMARY_COLOR } from "../../styles/colors.styles";
 
-export default function RadioGroup(props) {
+const RadioGroup =({ name, label, value, onChange, items })=>{
     const classes = useStyles();
-    const { name, label, value, onChange, items } = props;
-
-
+    
     return (
         <FormControl>
             <FormLabel>{label}</FormLabel>
@@ -38,3 +36,5 @@ const useStyles = makeStyles((theme) => ({
       },
       checked: {},
   }));
+
+  export default RadioGroup;

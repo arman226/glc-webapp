@@ -30,10 +30,8 @@ const initialFValues = {
   forReserve: false,
 }
 
-const NewStudents = (props) => {
-    
+const NewStudents =({ addOrEdit, recordForEdit })=>{  
   const classes = useStyles();
-  const { addOrEdit, recordForEdit } = props
 
   const validate = (fieldValues = values) => {
       let temp = { ...errors }
@@ -276,12 +274,11 @@ const NewStudents = (props) => {
 };
 const useStyles = makeStyles((theme) => ({
   content: {
-    // flexGrow: 1,
+    flexGrow: 1,
     padding: theme.spacing(3),
   },
   paper: {
     padding : 30,
-    // paddingLeft: 60,
     margin:"10px auto", 
     borderRadius: 6, 
     borderTop: `5px solid #32cd32`,

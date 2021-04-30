@@ -10,6 +10,8 @@ export const SUCCESS = "#22bb33";
 export const LIGHT_GREEN = "#ebfaeb";
 export const BLACK = 'black';
 
+export const AVATAR_COLOR = "#1bbd7e";
+
 //lime green #32cd32
 //orange #ffa500
 //yellow #ffff00

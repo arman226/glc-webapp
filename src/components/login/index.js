@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import ProgressIndicator from "../../components/progressIndicator";
 import ErrorHandler from "../../components/errorHandler";
 import { useHistory } from "react-router-dom";
+import { PRIMARY_COLOR, AVATAR_COLOR } from "../../styles/colors.styles";
 
 const Login = ({ fetchTestApiStart, isLoading, error }) => {
     const history = useHistory();
@@ -75,11 +76,11 @@ const useStyles = makeStyles((theme) => ({
       borderTop: `5px solid #32cd32`,
     },
     avatar: {
-      backgroundColor:'#1bbd7e',
+      backgroundColor: AVATAR_COLOR,
     },
     button: {
       margin:'50px 0', 
-      backgroundColor: '#32cd32', 
+      backgroundColor: PRIMARY_COLOR, 
       width:120,
     },
     textfield: {

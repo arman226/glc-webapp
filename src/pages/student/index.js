@@ -8,7 +8,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import ProgressIndicator from "../../components/progressIndicator";
 import ErrorHandler from "../../components/errorHandler";
-
+import { PRIMARY_COLOR, WHITE} from "../../styles/colors.styles";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -162,15 +162,15 @@ const useStyles = makeStyles((theme) => ({
   },
   add: {
     margin:'10px 0', 
-    color: 'white',
-    backgroundColor: '#32cd32', 
+    color: WHITE,
+    backgroundColor: PRIMARY_COLOR, 
     width:120,
   },
   archive: {
     margin:'10px 0', 
     marginLeft: 30,
-    color: 'white',
-    backgroundColor: '#32cd32', 
+    color: WHITE,
+    backgroundColor: PRIMARY_COLOR, 
     width:120,
   },
    paper: {

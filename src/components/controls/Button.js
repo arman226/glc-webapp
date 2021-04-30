@@ -1,21 +1,8 @@
 import React from 'react'
 import { Button as MuiButton, makeStyles } from '@material-ui/core';
-import { PRIMARY_COLOR } from "../../styles/colors.styles";
+import { PRIMARY_COLOR, WHITE } from "../../styles/colors.styles";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        margin: theme.spacing(0.5),
-        backgroundColor: PRIMARY_COLOR,
-        // justifyItems:"center"
-    },
-    label: {
-        color: 'white',
-        
-    },
-}))
-
-export default function Button(props) {
-    const { text, size, justify, variant, onClick, ...other } = props
+const Button =({ text, size, justify, variant, onClick, ...other })=>{
     const classes = useStyles();
 
     return (
@@ -31,3 +18,16 @@ export default function Button(props) {
 
     )
 }
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        margin: theme.spacing(0.5),
+        backgroundColor: PRIMARY_COLOR,
+    },
+    label: {
+        color: WHITE,
+        
+    },
+}))
+
+export default Button;

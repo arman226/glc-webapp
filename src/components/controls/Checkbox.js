@@ -1,10 +1,7 @@
 import React from 'react'
 import { FormControl, FormControlLabel, Checkbox as MuiCheckbox } from '@material-ui/core';
 
-export default function Checkbox(props) {
-
-    const { name, label, value, onChange } = props;
-
+const Checkbox =({ name, label, value, onChange })=>{
 
     const convertToDefEventPara = (name, value) => ({
         target: {
@@ -26,3 +23,4 @@ export default function Checkbox(props) {
         </FormControl>
     )
 }
+export default Checkbox;
